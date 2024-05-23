@@ -41,7 +41,7 @@ class MyDataset(Dataset):
             'past_values_interlocutor': self.past_values_interlocutor[i],
             'past_time_features': self.past_time_features[i],
             'past_observed_mask': self.past_observed_mask[i],
-            'static_categorical_features': self.static_categorical_features[i],
+            'static_categorical_features':  self.types_to_id[self.static_categorical_features[i]],
             'future_values_da': self.future_values_da[i],
             'future_values_interlocutor': self.future_values_interlocutor[i],
             'future_time_features': self.future_time_features[i],
@@ -54,6 +54,7 @@ class MyDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.data[idx]
+
         past_values_da = torch.tensor(row['past_values_da'])
         past_values_interlocutor = torch.tensor(row['past_values_interlocutor'])
         past_time_features = torch.tensor(row['past_time_features'])

@@ -176,6 +176,6 @@ if __name__ == "__main__":
 
             log_dict[f"val_f1_{da}"] = val_f1_dict[da]
 
-        np.save(f"predictions/preds_ablation_OT.npy", preds.cpu().numpy())
-        np.save(f"predictions/targets_ablation_OT.npy", targets.cpu().numpy())
+        np.save(f"predictions/preds_ablation_OT_test.npy", preds.cpu().numpy())
+        np.save(f"predictions/targets_ablation_OT_test.npy", targets.cpu().numpy())
         torch.save(model,f"models/ablation_OT.pt")
